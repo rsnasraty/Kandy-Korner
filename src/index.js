@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from "react-router-dom";
 import './index.css';
-import kandyKorner from './kandyKorner'
+import Kandy from './Kandy';
 
 ReactDOM.render(
   <Router>
-    <kandyKorner />
+    <Kandy />
   </Router>,
   document.getElementById('root')
 );

@@ -1,7 +1,7 @@
-import Login from "./auth/Login";
+import Login from "../auth/Login.js"
 import { Route, Redirect } from "react-router-dom";
 import React from "react";
-import Welcome from "./auth/Welcome";
+import Welcome from "../auth/Welcome.js";
 import ProductList from "../products/ProductList.js"
 
 const ApplicationViews = props => {

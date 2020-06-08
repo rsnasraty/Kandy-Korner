@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import ProductManager from '../../modules/ProductManager';
-import './ProductForm.css'
+import ProductsManager from '../../modules/ProductsManager';
 
 const ProductForm = props => {
   const [product, setProduct] = useState({ name: "", price: "" });
@@ -21,7 +20,7 @@ const ProductForm = props => {
     } else {
       setIsLoading(true);
       // Create the product and redirect user to product list
-      ProductManager.post(product)
+      ProductsManager.post(product)
         .then(() => props.history.push("/products"));
     }
   };

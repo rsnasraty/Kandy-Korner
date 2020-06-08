@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import NavBar from "./nav/NavBar";
-import ApplicationViews from "./components/ApplicationViews.js"
-import "./kandyKorner.css";
+import ApplicationViews from "./components/ApplicationViews"
 
-const kandyKorner = () => {
+
+const Kandy = () => {
   const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
 
   const [hasUser, setHasUser] = useState(isAuthenticated());
-  
+
   const setUser = user => {
     sessionStorage.setItem("credentials", JSON.stringify(user));
     setHasUser(isAuthenticated());
   };
-
 
   const clearUser = () => {
     sessionStorage.clear();
@@ -28,4 +27,4 @@ const kandyKorner = () => {
   );
 };
 
-export default kandyKorner;
+export default Kandy;

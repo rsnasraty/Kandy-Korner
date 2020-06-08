@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'; 
 import ProductCard from './ProductCard';
-import ProductManager from '../../modules/ProductManager';
+import ProductsManager from "../modules/ProductsManager.js"
 
 const ProductList = (props) => {
   // The initial state is an empty array
@@ -9,15 +9,15 @@ const ProductList = (props) => {
   const getProducts = () => {
     // After the data comes back from the API, we
     //  use the setProducts function to update state
-    return ProductManager.getAll().then(productsFromAPI => {
+    return ProductsManager.getAll().then(productsFromAPI => {
       setProducts(productsFromAPI)
     });
   };
 
   //deletes an product from the API, THEN gets all products again
   const deleteProduct = id => {
-    ProductManager.delete(id)
-      .then(() => ProductManager.getAll().then(setProducts));
+    ProductsManager.delete(id)
+      .then(() => ProductsManager.getAll().then(setProducts));
   };
 
   // got the Products from the API on the component's first render

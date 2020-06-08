@@ -1,7 +1,7 @@
 import React from "react";
 import "./Products.css";
 
-const productCard = props => {
+const ProductCard = props => {
   return (
     <div className="product-card">
       <div className="card-content">
@@ -15,4 +15,4 @@ const productCard = props => {
   );
 };
 
-export default productCard;
+export default ProductCard;

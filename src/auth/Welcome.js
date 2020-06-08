@@ -2,11 +2,11 @@ import React from "react";
 
 const Welcome = () => {
   return (
-    <address>
-      Visit Us in Crystal Tokyo
+    <section>
+      Welcome to Houchen's Kandy Korner
       <br />
-     <em>in the Palace Garden</em>
-    </address>
+     <em>Please don't get banned</em>
+    </section>
   );
 };
 
