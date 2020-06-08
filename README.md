@@ -1,68 +1,254 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Ms. Houchens' Kandy Korner 🍭
 
-## Available Scripts
+<!--  a story for kandy korner -->
+<!-- goals: 
+    - go over planning process with students
+    - students should lead the discussion (with us asking questions)
+    - students should be able to take this criteria and build:
+        - an ERD?
+        - a component list/dependency graph
+        - wireframe
+ -->
 
-In the project directory, you can run:
+Ms. Houchens came to us wanting to build an application for her candy company, Kandy Korner™. Kandy Korner has been a 🔥HOT🔥 business here in Nashville for the last 5 years, with Ms. Houchens opening up 2 more locations in the last year. She and her employees are tired of keeping track of products, location information, employee information, EVERYTHING on candy wrappers. Everything that her company does/is is on those candy wrappers and she's looking to move into a paperless world. Right now she needs an application to take care of her inventory needs and employees.
 
-### `npm start`
+Ms. Houchens has requested these features in her application:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. An employee can login with their username and password.
+1. ONLY employees can access the application.
+1. An employee can view a list of all products.
+1. An employee can add a new product to the inventory.
+1. When an employee is viewing the list of products, they can click on a details button to view that product's product type and which location(s) it's sold at.
+1. If an employee is viewing the details of a product, they can edit that product's information.
+1. An employee can view a list of all locations.
+1. An employee can view a list of all employees.
+1. When an employee is viewing the list of employees, they can click on a details button to view that employee's address, phone number, and which location they work at.
+1. Only Ms. Houchens can fire an employee.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+And has provided us with these resources:
+- products: `id`, `name`, `price`, `productTypeId`
+- productTypes: `id`, `name`
+- employees: `id`, `firstName`, `lastName`, `address`, `phone`, `locationId`, `username`, `password`, `isSupervisor`
+- locations: `id`, `name`, `address`, `phone`
+- productLocations: `id`, `productId`, `locationId`
 
-### `npm test`
+### Discussion Points:
+1. What are the components and their responsibilities?
+1. What are the data relationships?
+1. Which components will have state?
+1. Which components will receive props?
+1. Will we need any modules?
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<!-- ```json
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Pink Gummy Bears",
+            "price": "3.99",
+            "productTypeId": 2
+        },
+        {
+            "id": 2,
+            "name": "Houchen's Favorite Licorice",
+            "price": "60.95",
+            "productTypeId": 4
+        },
+        {
+            "id": 3,
+            "name": "Ghost Pepper Chocolate Bar",
+            "price": "4.07",
+            "productTypeId": 1
+        },
+        {
+            "id": 4,
+            "name": "World's Softest Jawbreaker",
+            "price": "20.99",
+            "productTypeId": 3
+        },
+        {
+            "id": 5,
+            "name": "World's Shortest Lasting Gum",
+            "price": "99.99",
+            "productTypeId": 5
+        },
+        {
+            "id": 6,
+            "name": "Jolly Developer",
+            "price": "65,000.00",
+            "productTypeId": 3
+        },
+        {
+            "id": 7,
+            "name": "Candy Broccoli",
+            "price": "2.99",
+            "productTypeId": 3
+        },
+        {
+            "id": 8,
+            "name": "Chocolate Tux",
+            "price": "3.89",
+            "productTypeId": 1
+        }
+    ],
+    "productTypes": [
+        {
+            "id": 1,
+            "name": "Chocolate"
+        },
+        {
+            "id": 2,
+            "name": "Gummy"
+        },
+        {
+            "id": 3,
+            "name": "Hard Candy"
+        },
+        {
+            "id": 4,
+            "name": "Licorice"
+        },
+        {
+            "id": 5,
+            "name": "Gum"
+        }
+    ],
+    "locations": [
+        {
+            "id": 1,
+            "name": "Kandy Korner Kidz",
+            "address": "202 Success Circle, Nashville, TN",
+            "phone": "154-7622"
+        },
+        {
+            "id": 2,
+            "name": "Kandy Korner",
+            "address": "418 Teapot Way, Nashville, TN",
+            "phone": "154-7624"
+        },
+        {
+            "id": 3,
+            "name": "Kandy Korner West Side",
+            "address": "304 Unchanged Drive, Nashville, TN",
+            "phone": "154-7626"
+        }
+    ],
+    "employees": [
+        {
+            "id": 1,
+            "firstName": "Sage",
+            "lastName": "Houchens",
+            "address": "404 Lost Way, Nashville, TN",
+            "phone": "657-2355",
+            "username": "houchieMama",
+            "password": "appleprincess1",
+            "isSupervisor": true,
+            "locationId": 1
+        },
+        {
+            "id": 2,
+            "firstName": "Rose",
+            "lastName": "Fieri",
+            "address": "500 Internal Drive, Nashville, TN",
+            "phone": "627-1435",
+            "username": "galFieri",
+            "password": "password123",
+            "isSupervisor": false,
+            "locationId": 2
+        },
+        {
+            "id": 3,
+            "firstName": "Bry",
+            "lastName": "Fyve",
+            "address": "403 Forbidden Way, Nashville, TN",
+            "phone": "763-8733",
+            "username": "bryFive",
+            "password": "bryFive",
+            "isSupervisor": false,
+            "locationId": 3
+        }
+    ],
+    "productLocations": [
+        {
+            "id": 1,
+            "productId": 1,
+            "locationId": 2
+        },
+        {
+            "id": 2,
+            "productId": 1,
+            "locationId": 1
+        },
+        {
+            "id": 3,
+            "productId": 2,
+            "locationId": 3
+        },
+        {
+            "id": 4,
+            "productId": 2,
+            "locationId": 1
+        },
+        {
+            "id": 5,
+            "productId": 3,
+            "locationId": 3
+        },
+        {
+            "id": 6,
+            "productId": 3,
+            "locationId": 2
+        },
+        {
+            "id": 7,
+            "productId": 4,
+            "locationId": 1
+        },
+        {
+            "id": 8,
+            "productId": 4,
+            "locationId": 2
+        },
+        {
+            "id": 9,
+            "productId": 4,
+            "locationId": 3
+        },
+        {
+            "id": 10,
+            "productId": 5,
+            "locationId": 1
+        },
+        {
+            "id": 11,
+            "productId": 6,
+            "locationId": 2
+        },
+        {
+            "id": 12,
+            "productId": 6,
+            "locationId": 3
+        },
+        {
+            "id": 13,
+            "productId": 7,
+            "locationId": 1
+        },
+        {
+            "id": 14,
+            "productId": 8,
+            "locationId": 3
+        },
+        {
+            "id": 15,
+            "productId": 8,
+            "locationId": 2
+        },
+        {
+            "id": 16,
+            "productId": 8,
+            "locationId": 1
+        }
+    ]
+}
+``` -->
