@@ -5,6 +5,6 @@ export default {
     return fetch(`${remoteURL}/products/${id}`).then(result => result.json())
   },
   getAll() {
-    return fetch(`${remoteURL}/product`).then(result => result.json())
+    return fetch(`${remoteURL}/products`).then(result => result.json())
   }
 }
