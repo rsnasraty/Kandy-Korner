@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from "react-router-dom";
 import './index.css';
-import kandyKorner from './kandyKorner.js';
+import kandyKorner from './kandyKorner'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Router>
     <kandyKorner />
-  </React.StrictMode>,
+  </Router>,
   document.getElementById('root')
 );
