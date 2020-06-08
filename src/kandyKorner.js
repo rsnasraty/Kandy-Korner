@@ -1,24 +1,30 @@
-import React from 'react';
-import './App.css';
+import React, { useState } from "react";
+import NavBar from "./nav/NavBar";
+import ApplicationViews from "./ApplicationViews";
+import "./kandyKorner.css";
 
-function App() {
+const kandyKorner = () => {
+  const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
+
+  const [hasUser, setHasUser] = useState(isAuthenticated());
+
+  const setUser = user => {
+    sessionStorage.setItem("credentials", JSON.stringify(user));
+    setHasUser(isAuthenticated());
+  };
+
+  const clearUser = () => {
+    sessionStorage.clear();
+    setHasUser(isAuthenticated());
+  }
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar hasUser={hasUser} clearUser={clearUser} />
+      <ApplicationViews hasUser={hasUser} setUser={setUser} />
+    </>
   );
-}
+};
 
-export default App;
+export default Kennel;
