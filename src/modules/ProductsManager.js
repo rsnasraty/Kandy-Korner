@@ -16,4 +16,9 @@ export default {
       body: JSON.stringify(newProduct)
     }).then(resp => resp.json())
   },
+  delete(id) {
+    return fetch(`${remoteURL}/products/${id}`, {
+      method: "DELETE"
+    }).then(resp => resp.json())
+  },
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ProductsManager from "../modules/ProductsManager"
 
 const ProductForm = props => {
-  const [product, setProduct] = useState({ name: "", price: "" });
+  const [product, setProduct] = useState({ name: "", price: "", productTypeId: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -45,7 +45,7 @@ const ProductForm = props => {
               id="price"
               placeholder="Price"
             />
-     <label htmlFor="producttypeId">Product Type Id</label>
+     <label htmlFor="productTypeId">Product Type Id</label>
             <input
               type="int"
               required
