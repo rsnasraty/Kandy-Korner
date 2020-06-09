@@ -32,23 +32,22 @@ const NavBar = (props) => {
       </h1>
       </header>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
+        <NavbarBrand href="/">Kandy Korner</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-            <NavLink href="/welcome">Home</NavLink>
+            <NavLink href="/">Home</NavLink>
             </NavItem>
             <NavItem>
-              <Link className="nav-link" to="/login">Login</Link>
+            <NavLink href="/login">Login</NavLink>
             </NavItem>
             <NavItem>
-              <Link className="nav-link" to="/products">Products</Link>
+            <NavLink href="/products">Products</NavLink>
             </NavItem>
-            <span className="nav-link" onClick={handleLogout}> Logout </span>
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
         </Collapse>
+        <span className="nav-link" onClick={handleLogout}> Logout </span>
       </Navbar>
     </div>
     );
