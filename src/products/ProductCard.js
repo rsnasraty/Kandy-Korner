@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Products.css";
 
 const ProductCard = props => {
@@ -8,7 +9,7 @@ const ProductCard = props => {
         <h2>
           Name: <span className="card-productname">{props.product.name}</span>
         </h2>
-        <h4> Price: {props.product.price} </h4>
+        <h4> Price: {props.product.price}</h4>
         <h4> Product Type Id: {props.product.productTypeId} </h4>
         <button
           onClick={() => {
@@ -18,6 +19,10 @@ const ProductCard = props => {
         >
           Delete
         </button>
+
+        <Link to={`/products/${props.product.id}`}>
+          <button>Details</button>
+        </Link>
       </div>
     </div>
   );

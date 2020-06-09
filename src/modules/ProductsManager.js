@@ -21,4 +21,13 @@ export default {
       method: "DELETE"
     }).then(resp => resp.json())
   },
+  update(editedProduct) {
+    return fetch(`${remoteURL}/products/${editedProduct.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(editedProduct)
+    }).then(resp => resp.json());
+  }
 }
