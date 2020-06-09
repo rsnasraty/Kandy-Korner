@@ -32,7 +32,7 @@ const ProductList = (props) => {
   <button type="button"
       className="btn"
       onClick={() => {props.history.push("/products/new")}}>
-      Admit Product
+      Add New Product
   </button>
   </section>
     <div className="container-cards">

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import ProductsManager from '../../modules/ProductsManager';
+import ProductsManager from "../modules/ProductsManager"
 
 const ProductForm = props => {
-  const [product, setProduct] = useState({ name: "", price: "" });
+  const [product, setProduct] = useState({ name: "", price: "", productTypeId: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -11,12 +11,10 @@ const ProductForm = props => {
     setProduct(stateToChange);
   };
 
-  /*  Local method for validation, set loadingStatus, create Product      object, invoke the ProductManager post method, and redirect to the full Product list
-  */
   const constructNewProduct = evt => {
     evt.preventDefault();
-    if (product.name === "" || product.price === "") {
-      window.alert("Please input an product name and price");
+    if (product.name === "" || product.price === "" || product.productTypeId === "") {
+      window.alert("Please input the product's name, price, and type");
     } else {
       setIsLoading(true);
       // Create the product and redirect user to product list
@@ -30,6 +28,7 @@ const ProductForm = props => {
       <form>
         <fieldset>
           <div className="formgrid">
+          <label htmlFor="name">Name</label>
             <input
               type="text"
               required
@@ -37,16 +36,24 @@ const ProductForm = props => {
               id="name"
               placeholder="Product name"
             />
-            <label htmlFor="name">Name</label>
+            
+            <label htmlFor="price">Price</label>
             <input
               type="text"
               required
               onChange={handleFieldChange}
-              id="color"
-              placeholder="Color"
+              id="price"
+              placeholder="Price"
             />
-            <label htmlFor="color">Color</label>
-          </div>
+     <label htmlFor="productTypeId">Product Type Id</label>
+            <input
+              type="int"
+              required
+              onChange={handleFieldChange}
+              id="productTypeId"
+              placeholder="product type Id"
+            />
+            </div>
           <div className="alignRight">
             <button
               type="button"

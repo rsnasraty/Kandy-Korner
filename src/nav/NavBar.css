@@ -30,11 +30,11 @@ small {
   }
   
   .nav-link {
-    color: ghostwhite;
+    color: rgb(52, 0, 74);
     text-decoration: underline;
     cursor: pointer;
   }
   
   .nav-link:hover {
-    color: rgb(68, 9, 94);
+    color: rgb(228, 200, 238);
   }

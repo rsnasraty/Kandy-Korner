@@ -9,7 +9,15 @@ const ProductCard = props => {
           Name: <span className="card-productname">{props.product.name}</span>
         </h2>
         <h4> Price: {props.product.price} </h4>
-        
+        <h4> Product Type Id: {props.product.productTypeId} </h4>
+        <button
+          onClick={() => {
+            props.deleteProduct(props.product.id);
+          }}
+          id="delete"
+        >
+          Delete
+        </button>
       </div>
     </div>
   );

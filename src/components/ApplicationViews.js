@@ -3,6 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 import React from "react";
 import Welcome from "../auth/Welcome.js";
 import ProductList from "../products/ProductList.js"
+import ProductForm from "../products/ProductForm.js"
 
 const ApplicationViews = props => {
     const hasUser = props.hasUser; 
@@ -23,9 +24,14 @@ const ApplicationViews = props => {
               return <Login setUser={setUser} {...props} />;
             }}
           />
+            <Route
+        path="/products/new"
+        render={props => {
+          return <ProductForm {...props} />;
+        }}
+      />
 
           
-
         <Route
         exact
         path="/products"

@@ -3,6 +3,7 @@ import NavBar from "./nav/NavBar";
 import ApplicationViews from "./components/ApplicationViews"
 
 
+
 const Kandy = () => {
   const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
 
