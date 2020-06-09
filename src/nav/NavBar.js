@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Link } from "react-router-dom";
 import "./NavBar.css";
 import {
   Collapse,
@@ -9,8 +8,7 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  NavbarText
+  NavLink
 } from 'reactstrap';
 
 const NavBar = (props) => {
@@ -42,12 +40,16 @@ const NavBar = (props) => {
             <NavItem>
             <NavLink href="/login">Login</NavLink>
             </NavItem>
+            {props.hasUser
+            ?
             <NavItem>
             <NavLink href="/products">Products</NavLink>
             </NavItem>
+            : null}
+            {props.hasUser 
+        ? <NavItem> <span className="nav-link" onClick={handleLogout}> Logout </span></NavItem> :null}
           </Nav>
         </Collapse>
-        <span className="nav-link" onClick={handleLogout}> Logout </span>
       </Navbar>
     </div>
     );
