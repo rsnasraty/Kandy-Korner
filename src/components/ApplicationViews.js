@@ -6,6 +6,7 @@ import ProductList from "../products/ProductList.js";
 import ProductForm from "../products/ProductForm.js";
 import ProductDetails from "../products/ProductDetails.js";
 import EmployeeList from "../employees/EmployeeList.js"
+import LocationList from "../locations/LocationList.js";
 
 const ApplicationViews = props => {
   const hasUser = props.hasUser;
@@ -71,6 +72,18 @@ const ApplicationViews = props => {
         render={props => {
           if (hasUser) {
             return <EmployeeList {...props} />;
+          } else {
+            return <Redirect to="/login" />;
+          }
+        }}
+      />
+
+<Route
+        exact
+        path="/locations"
+        render={props => {
+          if (hasUser) {
+            return <LocationList {...props} />;
           } else {
             return <Redirect to="/login" />;
           }

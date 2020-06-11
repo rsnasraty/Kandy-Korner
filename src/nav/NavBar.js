@@ -52,6 +52,12 @@ const NavBar = (props) => {
             <NavLink href="/employees">Employees</NavLink>
             </NavItem>
             : null}
+            {props.hasUser
+            ?
+            <NavItem>
+            <NavLink href="/locations">Locations</NavLink>
+            </NavItem>
+            : null}
             {props.hasUser 
         ? <NavItem> <span className="nav-link" onClick={handleLogout}> Logout </span></NavItem> :null}
           </Nav>
