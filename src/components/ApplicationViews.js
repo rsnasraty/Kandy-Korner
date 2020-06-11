@@ -5,6 +5,7 @@ import Welcome from "../auth/Welcome.js";
 import ProductList from "../products/ProductList.js";
 import ProductForm from "../products/ProductForm.js";
 import ProductDetails from "../products/ProductDetails.js";
+import EmployeeList from "../employees/EmployeeList.js"
 
 const ApplicationViews = props => {
   const hasUser = props.hasUser;
@@ -20,7 +21,8 @@ const ApplicationViews = props => {
         }}
       />
 
-      <Route
+
+<Route
         path="/login"
         render={props => {
           return <Login setUser={setUser} {...props} />;
@@ -51,10 +53,6 @@ const ApplicationViews = props => {
         }}
       />
 
-
-
-
-
       <Route
         exact
         path="/products"
@@ -66,6 +64,19 @@ const ApplicationViews = props => {
           }
         }}
       />
+
+<Route
+        exact
+        path="/employees"
+        render={props => {
+          if (hasUser) {
+            return <EmployeeList {...props} />;
+          } else {
+            return <Redirect to="/login" />;
+          }
+        }}
+      />
+
     </React.Fragment>
   );
 };
