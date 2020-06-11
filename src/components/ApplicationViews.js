@@ -21,7 +21,8 @@ const ApplicationViews = props => {
         }}
       />
 
-      <Route
+
+<Route
         path="/login"
         render={props => {
           return <Login setUser={setUser} {...props} />;
@@ -75,9 +76,6 @@ const ApplicationViews = props => {
           }
         }}
       />
-
-
-
 
     </React.Fragment>
   );
