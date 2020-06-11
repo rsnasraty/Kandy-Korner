@@ -10,11 +10,7 @@ const EmployeeCard = props => {
         </h2>
         <h4> Address: {props.employee.address}</h4>
         <h4> Phone: {props.employee.phone}</h4>
-        <h4> Username: {props.employee.username}</h4>
-        <h4> Password: {props.employee.password}</h4>
-        <h4> Supervisor?: {props.employee.isSupervisor} </h4>
         <h4> Location: {props.employee.locationId} </h4>
-        
         <button
           onClick={() => {
             props.deleteEmployee(props.employee.id);
